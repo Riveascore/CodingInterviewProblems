@@ -17,10 +17,22 @@
 
 class ArrayRotation
 
+  def rotate(a, k)
+    array_size = a.size
+    array = Array.new(array_size, nil)
+
+    a.each_with_index do |val, index|
+      new_index = (index + k) % array_size
+      array[new_index] = val
+    end
+
+    array
+  end
+  
   # @param {Array} a
   # @param {Integer} k
   # @return {Array}
-  def rotate(a, k)
+  def rotate_2nd(a, k)
     # []
     array = a.clone
     remainder = k / array.size
