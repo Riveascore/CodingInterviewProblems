@@ -21,6 +21,29 @@ class ArrayRotation
   # @param {Integer} k
   # @return {Array}
   def rotate(a, k)
-    []
+    # []
+
+
+    # say rotate 2, k = 2
+    # new_array = Array(a.size, nil)
+    # take 0..(k-1)
+    # first_k_elements = a[0..(k-1)]
+    # last_k_elements = a[(-(k - 1)), -1]
+
+    # first_k_elements.concat(last_k_elements)
+
+
+    # first_k_elements = a[0..(k - 1)]
+    # # beginning_of_last = -1 * (k - 1)
+    # beginning_of_last = -1 * (k + 1)
+    # last_k_elements = a[beginning_of_last..-1]
+
+    # last_k_elements.concat(first_k_elements)
+
+    k.times do |time|
+      a.unshift(a.pop)
+    end
+
+    a
   end
 end
