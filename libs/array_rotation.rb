@@ -22,6 +22,38 @@ class ArrayRotation
   # @return {Array}
   def rotate(a, k)
     # []
+    array = a.clone
+    remainder = k / array.size
+
+    case k / array.size
+    when 0
+    when 1
+      k = 0
+    else
+      k = k % array.size
+    end
+    
+
+    rotate_helper(a, k)
+  end
+
+  def rotate_helper(a, k)
+    first_k_elements = a[0..(k - 1)]
+    # beginning_of_last = -1 * (k - 1)
+    # beginning_of_last = -1 * (k + 1)
+    # beginning_of_last = -k
+    beginning_of_last = -1 * (a.size - k)
+    last_k_elements = a[beginning_of_last..-1]
+
+    last_k_elements.concat(first_k_elements)
+  end
+  
+  
+  # @param {Array} a
+  # @param {Integer} k
+  # @return {Array}
+  def slow_rotate(a, k)
+    # []
 
 
     # say rotate 2, k = 2
@@ -40,8 +72,10 @@ class ArrayRotation
 
     # last_k_elements.concat(first_k_elements)
 
+    
+    array = a.clone
     k.times do |time|
-      a.unshift(a.pop)
+      array.unshift(array.pop)
     end
 
     a
