@@ -17,10 +17,24 @@ class MissingPlusTwo
   # @param {Array} a
   # @return {Integer}
   def find_missing_number(a)
-    binary_search(a, a.size / 2)
+    # binary_search(a)
+
+    start = 0
+    finish = a.size - 1
+    mid = 0
+    
+    while finish - start >= 0 do
+      mid = start + (finish - start) / 2
+      correct_answer = mid * 2
+      start = mid + 1 if a[mid] == correct_answer
+      finish = mid - 1 if a[mid] != correct_answer
+    end
+
+    a[mid] == correct_answer ? a[mid] + 2 : a[mid] - 2
   end
 
-  def binary_search(list, n)
+  
+  def binary_search_old(list, n)
     low = 0
     high = list.size
 
