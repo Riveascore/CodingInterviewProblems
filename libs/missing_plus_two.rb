@@ -17,6 +17,37 @@ class MissingPlusTwo
   # @param {Array} a
   # @return {Integer}
   def find_missing_number(a)
+    binary_search(a, a.size / 2)
+  end
+
+  def binary_search(list, n)
+    low = 0
+    high = list.size
+
+    loop do 
+      mid = (low + high) / 2
+
+      return n if list[mid] == n
+      return false if list[mid] == nil
+      return false if (high - low).abs == 1
+
+      if list[mid] > n
+        high = mid
+      else
+        low = mid
+      end
+    end
+  end
+
+  def number_is_not_plus_two()
+    
+  end
+  
+  
+  
+  # @param {Array} a
+  # @return {Integer}
+  def find_missing_number_old(a)
     # -100
 
     # result = a[0]
