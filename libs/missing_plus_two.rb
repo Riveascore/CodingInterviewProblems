@@ -55,14 +55,31 @@ class MissingPlusTwo
     #     return correct_answer
     #   end
     # end
-    
+    index = a.size / 2
+    return is_correct_value?(a, index)
   end
 
   def is_correct_value?(a, index)
-    correct_answer = i * 2
-    if correct_answer != num
-      return is_correct_value?(a, index)
+    correct_answer = index * 2
+    return_value = nil
+    if correct_answer != a[index]
+      return correct_answer
+    else
+      left_array = a[0..index - 1]
+      left_index = left_array.size / 2
+
+      right_array = a[0..index - 1]
+      right_index = right_array.size / 2
+
+      left_value = is_correct_value?(left_array, left_index),
+      if left_value == nil
+        right_value = is_correct_value?(right_array, right_index)
+        return_value = right_value
+      end
+      return_value = left_value
     end
+
+    return return_value
   end
   
 end
