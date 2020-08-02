@@ -17,6 +17,52 @@ class MissingPlusTwo
   # @param {Array} a
   # @return {Integer}
   def find_missing_number(a)
-    -100
+    # -100
+
+    # result = a[0]
+    # a.each.with_index do |num, i|
+    #   correct_answer = result + 2
+    #   if num + 2 == correct_answer
+    #     result = correct_answer
+    #   else
+    #     return a[i - 1] + 2
+    #   end
+    # end
+
+    # return 0
+
+    # result = 0
+    # return false if a[0] != 0
+    # correct_array = Array.new(a.size, 0)
+    # a.each do |num|
+    #   correct_answer = result + 2
+    #   if num + 2 == correct_answer
+    #     return false
+    #   end
+    # end
+    # [0, 2, 4, 6, 8, 10, 12, 14]
+    # # say 3
+    # i = 3
+    # i * 2
+    # correct_array = Array.new(a.size, 0).map.with_index do |num, index|
+    #   index * 2
+    # end
+    # (correct_array - a)[0]
+
+    # a.each.with_index do |num, i|
+    #   correct_answer = i * 2
+    #   if correct_answer != num
+    #     return correct_answer
+    #   end
+    # end
+    
   end
+
+  def is_correct_value?(a, index)
+    correct_answer = i * 2
+    if correct_answer != num
+      return is_correct_value?(a, index)
+    end
+  end
+  
 end
