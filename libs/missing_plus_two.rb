@@ -60,9 +60,13 @@ class MissingPlusTwo
   end
 
   def is_correct_value?(a, index)
-    correct_answer = index * 2
+    num = a[index]
+    return nil if index > a.size - 1
+
     return_value = nil
-    if correct_answer != a[index]
+    correct_answer = index * 2
+    
+    if correct_answer != num
       return correct_answer
     else
       left_array = a[0..index - 1]
@@ -71,7 +75,7 @@ class MissingPlusTwo
       right_array = a[0..index - 1]
       right_index = right_array.size / 2
 
-      left_value = is_correct_value?(left_array, left_index),
+      left_value = is_correct_value?(left_array, left_index)
       if left_value == nil
         right_value = is_correct_value?(right_array, right_index)
         return_value = right_value
